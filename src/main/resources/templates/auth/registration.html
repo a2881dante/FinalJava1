@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Регистрация</title>
+
+    <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css" />
+    <script type="text/javascript" src="/webjars/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div class="container text-center">
+<div>
+    <h1>Зарегестрироваться в системе</h1>
+</div>
+<form th:action="@{/register}" th:object="${user}" method="post" style="max-width: 600px; margin: 0 auto;">
+    <div class="m-3">
+        <div class="form-group row">
+            <label class="col-4 col-form-label">Имя пользователя: </label>
+            <div class="col-8">
+                <input type="text" th:field="*{username}" class="form-control" required/>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label class="col-4 col-form-label">e-mail: </label>
+            <div class="col-8">
+                <input type="email" th:field="*{email}" class="form-control" required/>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label class="col-4 col-form-label">Пароль: </label>
+            <div class="col-8">
+                <input type="password" th:field="*{password}" class="form-control" required/>
+            </div>
+        </div>
+
+        <div>
+            <button type="submit" class="btn btn-primary">Зарегестрироваться</button>
+        </div>
+        <h4><a th:href="@{/}">Перейти на главную страницу</a></h4>
+    </div>
+</form>
+</div>
+</body>
+</html>

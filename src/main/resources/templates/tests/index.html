@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+        <html lang="en">
+        <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css" />
+    <script type="text/javascript" src="/webjars/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="container text-center">
+    <div id="war_no_repeat" class="alert alert-warning" role="alert">
+        У вас нет ничего на повторение сейчас. Приходите позже!
+    </div>
+    <div id="war_no_learn" class="alert alert-warning" role="alert">
+        У вас нет ничего в очереда на обучение!
+    </div>
+    <h4><a th:href="@{/}">Перейти на главную страницу</a></h4>
+
+    <div id="learn_block">
+        <div id="kanji_sign" style="font-size: 120px; font-weight: bold"></div>
+        <div id="kanji_card" style="font-size: 30px;"></div>
+        <div id="kanji_meaning" style="font-size: 40px; font-weight: bold"></div>
+    </div>
+
+    <div id="test_block">
+        <div id="res_success" class="alert alert-success" role="alert">Верно!</div>
+        <div id="res_error" class="alert alert-danger" role="alert">Неверно!</div>
+        <div id="question" style="font-size: 60px; font-weight: bold"></div>
+        <div id="answer_options"></div>
+    </div>
+
+    <button id="next" style="margin-top: 20px" class="btn btn-success">Далее</button>
+
+    <form th:action="@{/compleate-learning}" method="post" id="complete_form">
+        <input type="hidden" name="ids" value="">
+        <input type="hidden" name="save_mode" valuse="">
+    </form>
+</div>
+
+<script th:inline="javascript">
+    /*<![CDATA[*/
+    let arrKanjies = JSON.parse(/*[[${message}]]*/ '[]');
+    let saveMode = /*[[${save_mode}]]*/ '';
+    /*]]>*/
+</script>
+<script src="/js/test.js"></script>
+
+</body>
+</html>

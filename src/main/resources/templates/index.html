@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Тренажер кандзи</title>
+    <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css" />
+    <script type="text/javascript" src="/webjars/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="container text-center">
+    <h1>Тренажер </h1>
+    <div sec:authorize="isAnonymous()">
+        <h3>
+            <a th:href="@{/sign-up}">Зарегестрироваться</a>
+        </h3>
+        <h3>
+            <a th:href="@{/sign-in}">Войти в свой профиль</a>
+        </h3>
+    </div>
+
+    <h3>
+        <a th:href="@{/kanji-info}">Что такое кандзи?</a>
+    </h3>
+
+    <h3>
+        <a th:href="@{/kanji-classes}">Библиотека канджи по годам обучения</a>
+    </h3>
+
+    <h3>
+        <a th:href="@{/learn-info}">В чем суть обучения в системе</a>
+    </h3>
+
+    <div sec:authorize="isAuthenticated()">
+        <h3>
+            <a th:href="@{/learn}">Учить новые кандзи</a>
+        </h3>
+
+        <h3>
+            <a th:href="@{/repeat}">Повторить уже выученные</a>
+        </h3>
+
+        <h3>
+            <a th:href="@{/profile}">Профиль</a>
+        </h3>
+
+        <h3>
+            <a th:href="@{/logout}">Выйти с профиля</a>
+        </h3>
+    </div>
+</div>
+
+</body>
+</html>
