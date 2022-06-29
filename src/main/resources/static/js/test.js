@@ -2,7 +2,7 @@ var currentKanji = 0,
     learningStage = 1,
     testArr = [],
     testingKanji,
-    successCount = 13,
+    successCount = 0,
     isAnswered = false;
 
 init();
